@@ -1,0 +1,18 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+# Godot 4+ 项目忽略规则
+
+.import/
+export.cfg
+export_presets.cfg
+
+# 忽略 Mono 调试信息（如果您使用 C#）
+mono/
+
+# 忽略操作系统自动生成的文件
+.DS_Store
+Thumbs.db
+
+# 忽略任何本地化的导出预设（通常包含机器特定路径）
+export_presets.cfg.import
