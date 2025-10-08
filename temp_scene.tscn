@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq81dqrl8hdyl"]
+
+[ext_resource type="Script" uid="uid://cj0xe6ea26yv6" path="res://Temp.cs" id="1_bmn5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdrhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmn5f"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D1" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D1"]
+shape = SubResource("RectangleShape2D_jdrhb")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 256
+script = ExtResource("1_bmn5f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_bmn5f")
+
+[connection signal="area_entered" from="Area2D2" to="Area2D2" method="TestColl"]

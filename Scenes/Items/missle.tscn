@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0litnv1xdjvp"]
+
+[ext_resource type="Script" uid="uid://2ultwitiva6o" path="res://Scripts/Actors/Missle.cs" id="1_b2mna"]
+[ext_resource type="Texture2D" uid="uid://4u5c3lxpsu8m" path="res://Assets/Graphics/Items/missle/b_dd4afc69f3e5cc2015e282fc68d90ae4.jpg" id="1_ppua8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2mna"]
+
+[node name="missle" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_b2mna")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ppua8")
+region_enabled = true
+region_rect = Rect2(167.5589, -5.030138, 283.05933, 250.84914)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b2mna")
+
+[connection signal="area_entered" from="." to="." method="HitEnemy"]

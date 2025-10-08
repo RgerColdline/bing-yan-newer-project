@@ -1,0 +1,13 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc40d6beijdk3"]
+
+[ext_resource type="Script" uid="uid://bevyyb1tpg78s" path="res://Documentation/Core/Autoloads/GameManager.cs" id="1_jxn2u"]
+[ext_resource type="PackedScene" uid="uid://dvdx1wc65kds3" path="res://Scenes/Characters/Players/player.tscn" id="2_bve0l"]
+[ext_resource type="PackedScene" uid="uid://ulp7ot40gxvc" path="res://Scenes/Rooms/normal.tscn" id="3_dr023"]
+[ext_resource type="PackedScene" uid="uid://bin6w7ts7ermo" path="res://Scenes/Rooms/normal_2.tscn" id="4_ncwwy"]
+[ext_resource type="PackedScene" uid="uid://dngckjawhqhsk" path="res://Scenes/Rooms/normal_3.tscn" id="5_7o42p"]
+[ext_resource type="PackedScene" uid="uid://bv2qp15uwnt5r" path="res://Scenes/Rooms/boss.tscn" id="6_jqrd0"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_jxn2u")
+_playerScene = ExtResource("2_bve0l")
+_roomScenes = Array[PackedScene]([ExtResource("3_dr023"), ExtResource("4_ncwwy"), ExtResource("5_7o42p"), ExtResource("6_jqrd0")])

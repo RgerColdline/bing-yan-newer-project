@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://qjwp6lk301j4"]
+
+[ext_resource type="Script" uid="uid://b7oi8jbijcc3y" path="res://Scenes/Characters/Enemies/Neuro.cs" id="1_b1iof"]
+[ext_resource type="Texture2D" uid="uid://bv81mnl1oj70d" path="res://Assets/Graphics/Characters/Enemies/nerve_wps图片/1448.png" id="1_wuf8u"]
+[ext_resource type="Script" uid="uid://qebsu54kfo8k" path="res://Scenes/Characters/Enemies/NeuroAni.cs" id="2_eo3n0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo3n0"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1iof"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep5yw"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixgna"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ieq"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mccu"]
+atlas = ExtResource("1_wuf8u")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhq83"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_eo3n0")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_b1iof")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ep5yw")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ixgna")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_f8ieq")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_6mccu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlwfj"]
+radius = 15.0
+height = 42.0
+
+[node name="neuro" type="Area2D"]
+z_index = 100
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(0.7, 0.7)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_b1iof")
+
+[node name="neuroani" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21, 95)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dhq83")
+frame_progress = 0.12925199
+offset = Vector2(7, -50)
+script = ExtResource("2_eo3n0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(1.9999999, 1.9999999)
+shape = SubResource("CapsuleShape2D_xlwfj")
+
+[connection signal="area_entered" from="." to="." method="NeHit"]
